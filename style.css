@@ -23,9 +23,9 @@
     --accent-lime: #D1DC97;
     --accent-red: #E9A9B3;
     /* Gradient */
-    --gradient-border: #77C0AF 0%, #D1DC97 14.84%, #E9A9B3 32.15%, #D586E0 65.79%, #91A1FA 84.58%;
-    --gradient-background: #D586E0 0%, #91A1FA 98.93%;
-    --gradient-content: #C7C9CC 0%, #3D3D3D 100%;
+    --gradient-border: linear-gradient(#77C0AF 0%, #D1DC97 14.84%, #E9A9B3 32.15%, #D586E0 65.79%, #91A1FA 84.58%);
+    --gradient-background: linear-gradient(#D586E0 0%, #91A1FA 98.93%);
+    --gradient-content: linear-gradient(90deg,#C7C9CC 0%, #3D3D3D 150%);
 
     --font-sora: "Sora", sans-serif;
     --display-large: 800 72px/8.125rem var(--font-sora);
@@ -57,8 +57,10 @@ header {
 header img {
     width: 38px;
 }
-header h2 {
-    font: var(--display-small);
+.gradiente {
+    background: var(--gradient-content);
+    -webkit-background-clip: text; /* recorta o gradiente no texto */
+    -webkit-text-fill-color: transparent; /* deixa o texto transparente */
 }
 .container {
     display: flex;
@@ -66,10 +68,9 @@ header h2 {
     align-items: flex-start;
     padding: 60px 80px;
 }
-#info {
-    max-width: 480px;
-}
 #info span {
     font: var(--overline);
-    color: 
+}
+h1 {
+    font: var(--display-large);
 }
