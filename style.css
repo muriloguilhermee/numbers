@@ -28,19 +28,19 @@
     --gradient-content: linear-gradient(90deg,#C7C9CC 0%, #3D3D3D 150%);
 
     --font-sora: "Sora", sans-serif;
-    --display-large: 800 72px/8.125rem var(--font-sora);
-    --display-medium: 800 40px/8.125rem var(--font-sora);
-    --display-small: 700 32px/8.125rem var(--font-sora);
+    --display-large: 800 72px/130% var(--font-sora);
+    --display-medium: 700 40px/8.125rem var(--font-sora);
+    --display-small: 700 32px/130% var(--font-sora);
 
     --font-roboto-mono: "Roboto Mono", monospace; 
-    --overline: 700 16px/9.375rem var(--font-roboto-mono);
+    --overline: 700 16px/5.375rem var(--font-roboto-mono);
 
     --font-roboto-flex: "Roboto Flex", sans-serif;
     --paragraph-large: 500 16px/9.375rem var(--font-roboto-flex);
-    --paragraph-medium: 500 14px/9.375rem var(--font-roboto-flex);
-    --paragraph--small: 500 12px/9.375rem var(--font-roboto-flex);
-    --label-medium: 700 20px/9.375rem var(--font-roboto-flex);
-    --label-small: 700 16px/9.375rem var(--font-roboto-flex);
+    --paragraph-medium: 500 14px/80% var(--font-roboto-flex);
+    --paragraph--small: 500 12px/150% var(--font-roboto-flex);
+    --label-medium: 700 20px/200% var(--font-roboto-flex);
+    --label-small: 500 16px/100% var(--font-roboto-flex);
 
 }
 body {
@@ -52,10 +52,13 @@ header {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 20px 40px;
+    padding: 60px 250px;
+}
+header h2 {
+    font: var(--display-small);
 }
 header img {
-    width: 38px;
+    width: 40px;
 }
 .gradiente {
     background: var(--gradient-content);
@@ -66,7 +69,7 @@ header img {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 60px 80px;
+    padding: 0px 250px;
 }
 #info span {
     font: var(--overline);
@@ -74,3 +77,72 @@ header img {
 h1 {
     font: var(--display-large);
 }
+.paragrafo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.paragrafo img {
+    width: 30px;
+}
+.paragrafo p {
+    font: var(--paragraph-medium);
+    color: var(--content-brand);
+}
+.sub {
+    font: var(--paragraph--small);
+    padding-left: 35px;
+    color: var(--content-secondary);
+}
+
+.form-box h3 {
+    font: var(--label-medium);
+    padding-top: 70px;
+}
+.form-box p {
+    font: var(--label-small);
+    color: var(--content-secondary);
+}
+.inputs {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+.inputs div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.inputs label {
+  font: var(--label-small);
+  color: var(--content-secondary);
+  padding-top: 30px;
+}
+.inputs input {
+  width: 70px;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  background: #1a1a1a;
+  color: #fff;
+  text-align: center;
+  font: var(--display-small);
+}
+.inputs input {
+  width: 70px;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  background: #1a1a1a;
+  color: #fff;
+  text-align: center;
+  font-size: 1rem;
+}
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
