@@ -118,31 +118,17 @@ h1 {
   font: var(--label-small);
   color: var(--content-secondary);
   padding-top: 30px;
+  padding-bottom: 15px;
 }
 .inputs input {
-  width: 70px;
-  padding: 8px;
-  border-radius: 8px;
+  width: 100px;
+  padding: 8px 1px 8px 18px;
+  border-radius: 12px;
   border: none;
   background: #1a1a1a;
   color: #fff;
   text-align: center;
   font: var(--display-small);
-}
-.inputs input {
-  width: 70px;
-  padding: 8px;
-  border-radius: 8px;
-  border: none;
-  background: #1a1a1a;
-  color: #fff;
-  text-align: center;
-  font-size: 1rem;
-}
-.toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-}
+  }
+
 
