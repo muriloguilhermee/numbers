@@ -1,29 +1,62 @@
-const qtd = parseInt(document.getElementById("quantidade").value); // Pega a quantidade de números do input
-const min = parseInt(document.getElementById("min").value);        // Pega o valor mínimo do input
-const max = parseInt(document.getElementById("max").value);        // Pega o valor máximo do input
-const repeat = document.getElementById("repeat").checked;          // Verifica se "não repetir número" está marcado
-function sortear() { // Função chamada ao clicar em "SORTEAR"
+let rodada = 0;        // contador de quantas vezes já sorteou
+let ultimaConfig = {}; // guarda a última configuração usada
 
-  let numeros = []; // Array vazio para armazenar os números sorteados
+function sortear(novamente = false) {
+  const qtd = parseInt(document.getElementById("quantidade").value);
+  const min = parseInt(document.getElementById("min").value);
+  const max = parseInt(document.getElementById("max").value);
+  const noRepeat = document.getElementById("repeat").checked;
 
-  while (numeros.length < qtd) { // Continua até sortear a quantidade pedida
-    let num = Math.floor(Math.random() * (max - min + 1)) + min; // Gera número aleatório entre min e max
+  // Quando for "sortear novamente", usa a última configuração
+  let qtdFinal = novamente ? ultimaConfig.qtd : qtd;
+  let minFinal = novamente ? ultimaConfig.min : min;
+  let maxFinal = novamente ? ultimaConfig.max : max;
+  let noRepeatFinal = novamente ? ultimaConfig.noRepeat : noRepeat;
 
-    if (repeat) { // Se a opção de não repetir estiver marcada
-      if (!numeros.includes(num)) { // Verifica se o número ainda não existe no array
-        numeros.push(num); // Adiciona o número ao array
+  // Salva a configuração na primeira vez
+  if (!novamente) {
+    ultimaConfig = { qtd, min, max, noRepeat };
+    rodada = 0; // reset contador
+  }
+
+  let numeros = [];
+
+  // Validações
+  if (isNaN(qtdFinal) || isNaN(minFinal) || isNaN(maxFinal)) {
+    alert("Preencha todos os campos corretamente!");
+    return;
+  }
+
+  if (minFinal > maxFinal) {
+    alert("O valor mínimo não pode ser maior que o máximo!");
+    return;
+  }
+
+  if (noRepeatFinal && qtdFinal > (maxFinal - minFinal + 1)) {
+    alert("Erro: não é possível gerar mais números únicos do que o intervalo permite.");
+    return;
+  }
+
+  // Sorteio
+  while (numeros.length < qtdFinal) {
+    let num = Math.floor(Math.random() * (maxFinal - minFinal + 1)) + minFinal;
+
+    if (noRepeatFinal) {
+      if (!numeros.includes(num)) {
+        numeros.push(num);
       }
-    } else { 
-      numeros.push(num); // Se repetição for permitida, adiciona direto
+    } else {
+      numeros.push(num);
     }
   }
 
-  document.getElementById("resultado").innerText = numeros.join("   "); // Mostra os números sorteados separados por espaço
-  document.getElementById("formBox").style.display = "none";            // Esconde o formulário
-  document.getElementById("telaResultado").style.display = "block";     // Mostra a tela de resultado
-}
+  rodada++; // incrementa número do resultado
 
-function voltar() { // Função chamada ao clicar em "SORTEAR NOVAMENTE"
-  document.getElementById("telaResultado").style.display = "none"; // Esconde a tela de resultado
-  document.getElementById("formBox").style.display = "block";      // Mostra novamente o formulário
+  // Exibe resultado
+  document.getElementById("resultado").innerText = numeros.join("   ");
+  document.getElementById("tituloResultado").innerText = `${rodada}° RESULTADO`;
+
+  // Mostra a tela de resultado na primeira vez
+  document.getElementById("formBox").style.display = "none";
+  document.getElementById("telaResultado").style.display = "block";
 }

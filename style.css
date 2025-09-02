@@ -33,7 +33,7 @@
     --display-small: 700 32px/130% var(--font-sora);
 
     --font-roboto-mono: "Roboto Mono", monospace; 
-    --overline: 700 16px/5.375rem var(--font-roboto-mono);
+    --overline: 100 16px/100% var(--font-roboto-mono);
 
     --font-roboto-flex: "Roboto Flex", sans-serif;
     --paragraph-large: 500 16px/9.375rem var(--font-roboto-flex);
@@ -89,6 +89,14 @@ header img {
 }
 h1 {
     font: var(--display-large);
+}
+h3 {
+  font: var(--label-medium);
+}
+#tituloResultado{
+  font: var(--overline);
+  color: var(--content-secondary);
+  padding-bottom: 50px;
 }
 .paragrafo {
     display: flex;
@@ -384,4 +392,20 @@ h1 {
     line-height: 1.6;
     color: var(--content-secondary);
   }
+}
+#telaResultado {
+  display: flex;
+  text-align: center;
+  padding-top: 50px;
+
+}
+#resultado {
+  font: var(--overline);
+  font-size: 45px;
+  color: var(--content-brand);
+  padding-bottom: 30px;
+}
+#button {
+  gap: 10px;
+  padding: 10px 100px 10px 100px;
 }
