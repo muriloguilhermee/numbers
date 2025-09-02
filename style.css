@@ -76,10 +76,12 @@ header img {
     -webkit-background-clip: text; /* recorta o gradiente no texto */
     -webkit-text-fill-color: transparent; /* deixa o texto transparente */
 }
+
 .container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 4px;
     padding: 0px 250px;
 }
 #info span {
